@@ -1,7 +1,7 @@
 import Head from "next/head";
 import TopNavbar from "../components/Navbar/TopNavbar";
 import { useState, useEffect } from "react";
-import { DarkModeContext } from "../context/darkModeContext";
+import { DarkModeContext } from "../context/DarkModeContext";
 
 // import { Inter } from "@next/font/google";
 // import Image from "next/image";
@@ -9,7 +9,7 @@ import { DarkModeContext } from "../context/darkModeContext";
 // const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-	const [darkMode, setDarkMode] = useState("light");
+	const [darkMode, setDarkMode] = useState("dark");
 	return (
 		<>
 			<Head>

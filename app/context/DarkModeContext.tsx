@@ -1,3 +1,3 @@
-import { Dispatch, SetStateAction, createContext } from "react";
+import { createContext } from "react";
 
 export const DarkModeContext = createContext({});
