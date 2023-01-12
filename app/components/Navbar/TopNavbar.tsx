@@ -6,7 +6,7 @@ export default function TopNavbar() {
 	const isDarkMode = darkMode == "dark";
 	return (
 		<>
-			<div className="text-lg font-bold">{darkMode}</div>
+			<div className="text-lg font-bold z-10">{darkMode}</div>
 			<button
 				onClick={() => {
 					if (isDarkMode) {
