@@ -5,7 +5,7 @@ export default function ProfilePicture() {
 	return (
 		<div className="relative">
 			<Image
-				className="rounded-full w-60 h-60"
+				className="rounded-full w-40 h-40 shadow-lg"
 				src={profilePic}
 				alt="Picture of the author"
 				// width={500} automatically provided

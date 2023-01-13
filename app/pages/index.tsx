@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import { DarkModeContext } from "../context/DarkModeContext";
+import { useState } from "react";
 import ResponsiveBodyContainer from "../components/Container/ResponsiveBodyContainer";
 import TopNavbar from "../components/Navbar/TopNavbar";
+import { DarkModeContext } from "../context/DarkModeContext";
 
 export default function Home() {
 	const [darkMode, setDarkMode] = useState("dark");
@@ -18,12 +18,16 @@ export default function Home() {
 				<link rel="icon" href="/logo.png" />
 			</Head>
 			<main className={darkMode}>
-				<div className="h-screen bg-white dark:bg-black text-black dark:text-white relative">
-					<DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-						<TopNavbar />
-						<ResponsiveBodyContainer />
-					</DarkModeContext.Provider>
-				</div>
+				<DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+					<div className="flex flex-col h-screen w-full bg-white dark:bg-black text-black dark:text-white space-y-8">
+						<div className="flex-none">
+							<TopNavbar />
+						</div>
+						<div className="flex-1">
+							<ResponsiveBodyContainer />
+						</div>
+					</div>
+				</DarkModeContext.Provider>
 			</main>
 		</>
 	);
