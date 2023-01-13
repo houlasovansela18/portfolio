@@ -1,13 +1,8 @@
 import Head from "next/head";
-import TopNavbar from "../components/Navbar/TopNavbar";
 import { useState, useEffect } from "react";
 import { DarkModeContext } from "../context/DarkModeContext";
-import Rainbow from "../components/Stylish/Rainbow";
-
-// import { Inter } from "@next/font/google";
-// import Image from "next/image";
-
-// const inter = Inter({ subsets: ["latin"] });
+import ResponsiveBodyContainer from "../components/Container/ResponsiveBodyContainer";
+import TopNavbar from "../components/Navbar/TopNavbar";
 
 export default function Home() {
 	const [darkMode, setDarkMode] = useState("dark");
@@ -23,10 +18,10 @@ export default function Home() {
 				<link rel="icon" href="/logo.png" />
 			</Head>
 			<main className={darkMode}>
-				<div className="h-screen bg-zinc-900 dark:bg-black text-white font-mono relative">
+				<div className="h-screen bg-white dark:bg-black text-black dark:text-white relative">
 					<DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
 						<TopNavbar />
-						<Rainbow />
+						<ResponsiveBodyContainer />
 					</DarkModeContext.Provider>
 				</div>
 			</main>
