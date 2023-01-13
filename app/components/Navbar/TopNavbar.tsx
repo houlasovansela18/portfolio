@@ -18,7 +18,7 @@ export default function TopNavbar() {
 	const isDarkMode = darkMode == "dark";
 	const githubLink = "https://github.com/houlasovansela18";
 	return (
-		<div className="bg-transparent h-16 mx-auto w-11/12 sm:w-5/6 md:w-3/4 lg:w-3/4 xl:w-2/3 2xl:w-1/2 flex flex-row justify-between items-end">
+		<div className="bg-transparent h-16 mx-auto w-11/12 sm:w-5/6 md:w-3/4 lg:w-3/4 xl:w-2/3 2xl:w-1/2 flex flex-row justify-between items-center">
 			<div className="flex sm:flex md:flex lg:hidden xl:hidden 2xl:hidden">
 				<button onClick={() => {}} className="rounded-xl hover:bg-zinc-500 p-2">
 					<FiMenu size={24} />
