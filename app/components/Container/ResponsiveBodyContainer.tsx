@@ -54,7 +54,7 @@ export default function ResponsiveBodyContainer() {
 							<p>{aboutMe}</p>
 						</div>
 					</div>
-					<div className="hidden flex-none md:flex justify-end">
+					<div className="hidden flex-none md:flex justify-end w-40 h-40">
 						<ProfilePicture width="40" height="40" />
 					</div>
 				</div>
