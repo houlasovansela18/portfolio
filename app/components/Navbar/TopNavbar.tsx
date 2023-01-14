@@ -8,54 +8,52 @@ import {
 	FiMenu,
 	FiMoon,
 	FiPenTool,
+	FiPhone,
 	FiSun,
 } from "react-icons/fi";
 import { GiMuscleUp } from "react-icons/gi";
 import Link from "next/link";
+import ProfilePicture from "../Picture/ProfilePicture";
+import Rainbow from "../Stylish/Rainbow";
 
 export default function TopNavbar() {
 	const { darkMode, setDarkMode } = useContext(DarkModeContext);
 	const isDarkMode = darkMode == "dark";
 	const githubLink = "https://github.com/houlasovansela18";
+	const navElement = [
+		// eslint-disable-next-line react/jsx-key
+		["home", <FiHome />],
+		// eslint-disable-next-line react/jsx-key
+		["note", <FiPenTool />],
+		// eslint-disable-next-line react/jsx-key
+		["motivation", <GiMuscleUp />],
+		// eslint-disable-next-line react/jsx-key
+		["projects", <FiFolder />],
+		// eslint-disable-next-line react/jsx-key
+		["contact", <FiPhone />],
+	];
 	return (
-		<div className="bg-transparent h-16 mx-auto w-11/12 sm:w-5/6 md:w-3/4 lg:w-3/4 xl:w-2/3 2xl:w-1/2 flex flex-row justify-between items-center">
-			<div className="flex sm:flex md:flex lg:hidden xl:hidden 2xl:hidden">
+		<nav className="bg-transparent h-16 mx-auto max-w-4xl px-8 flex justify-between items-center  font-bold ">
+			<div className="flex md:hidden">
 				<button onClick={() => {}} className="rounded-xl hover:bg-zinc-500 p-2">
 					<FiMenu size={24} />
 				</button>
 			</div>
-			<div className="hidden flex-row justify-center items-center space-x-4 sm:hidden md:hidden lg:flex xl:flex 2xl:flex">
-				<Link
-					href={`/`}
-					className="rounded-xl hover:bg-zinc-500 p-2 flex flex-row items-center space-x-1"
-				>
-					<span>Home</span>
-					<FiHome />
-				</Link>
-				<Link
-					href={`/`}
-					className="rounded-xl hover:bg-zinc-500 p-2 flex flex-row items-center space-x-1"
-				>
-					<span>Sticky Note</span>
-					<FiPenTool />
-				</Link>
-				<Link
-					href={`/`}
-					className="rounded-xl hover:bg-zinc-500 p-2 flex flex-row items-center space-x-1"
-				>
-					<span>Motivation?</span>
-					<GiMuscleUp />
-				</Link>
-				<Link
-					href={`/`}
-					className="rounded-xl hover:bg-zinc-500 p-2 flex flex-row items-center space-x-1"
-				>
-					<span>Projects</span>
-					<FiFolder />
-				</Link>
+			<div className="gap-3 hidden md:flex">
+				{navElement.map((element) => {
+					return (
+						<Link
+							key={`${element[0]}`}
+							href= {element[0] != "home" ? `/${element[0]}` : "/"}
+							className="rounded-xl hover:bg-zinc-300 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
+						>
+							<span className="capitalize">{element[0]}</span>
+							{element[1]}
+						</Link>
+					);
+				})}
 			</div>
-
-			<div className="flex flex-row justify-center items-center space-x-4">
+			<div className="flex items-center space-x-2	">
 				<button
 					onClick={() => {
 						if (isDarkMode) {
@@ -64,17 +62,21 @@ export default function TopNavbar() {
 							setDarkMode("dark");
 						}
 					}}
-					className="rounded-xl hover:bg-zinc-500 p-2"
+					className="rounded-xl hover:bg-zinc-300 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
 				>
 					{!isDarkMode ? <FiMoon size={24} /> : <FiSun size={24} />}
 				</button>
 				<Link
 					href={`${githubLink}`}
-					className="rounded-xl hover:bg-zinc-500 p-2"
+					className="rounded-xl hover:bg-zinc-300 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
 				>
 					<FiGithub size={24} />
 				</Link>
+				<div className="flex md:hidden">
+					<Rainbow width={10} height={20} />
+					<ProfilePicture width={12} height={12} />
+				</div>
 			</div>
-		</div>
+		</nav>
 	);
 }
