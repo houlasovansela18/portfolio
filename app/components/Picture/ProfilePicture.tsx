@@ -5,8 +5,8 @@ export default function ProfilePicture({
 	width,
 	height,
 }: {
-	width: number;
-	height: number;
+	width: string;
+	height: string;
 }) {
 	return (
 		<div className={`w-${width} h-${height}`}>
@@ -14,9 +14,9 @@ export default function ProfilePicture({
 				className={`rounded-full w-${width} h-${height} shadow-lg object-fill`}
 				src={profilePic}
 				alt="Picture of the author"
-				// width={500} automatically provided
-				// height={500} automatically provided
-				// blurDataURL="data:..." automatically provided
+				// width={200}
+				// height={200}
+				// blurDataURL="data:..."
 				placeholder="blur" // Optional blur-up while loading
 			/>
 		</div>
