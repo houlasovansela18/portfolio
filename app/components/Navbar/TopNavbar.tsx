@@ -34,11 +34,11 @@ export default function TopNavbar() {
 	];
 	return (
 		<>
-			<nav className="bg-transparent h-16 mx-auto max-w-4xl px-8 flex justify-between items-center  font-bold relative">
+			<nav className="bg-transparent h-16 mx-auto max-w-4xl px-8 flex justify-between items-center relative">
 				<div className="flex md:hidden">
 					<button
 						onClick={() => {}}
-						className="rounded-xl hover:bg-zinc-500 p-2"
+						className="rounded-xl hover:bg-zinc-500 p-2 opacity-90 hover:opacity-100"
 					>
 						<FiMenu size={24} />
 					</button>
@@ -49,16 +49,15 @@ export default function TopNavbar() {
 							<Link
 								key={`${element[0]}`}
 								href={element[0] != "home" ? `/${element[0]}` : "/"}
-								className="rounded-xl opacity-80 hover:opacity-100 hover:bg-zinc-300 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
+								className="rounded-xl opacity-90 hover:opacity-100 hover:font-bold hover:bg-zinc-200 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
 							>
-								<span className="capitalize capsize">{element[0]}</span>
+								<span className="capitalize">{element[0]}</span>
 								{element[1]}
 							</Link>
 						);
 					})}
 				</div>
 				<div className="flex items-center space-x-2	mr-[-0.40rem]">
-					<Rainbow width="12" height="12" />
 					<button
 						onClick={() => {
 							if (isDarkMode) {
@@ -67,17 +66,18 @@ export default function TopNavbar() {
 								setDarkMode("dark");
 							}
 						}}
-						className="rounded-xl opacity-80 hover:opacity-100 hover:bg-zinc-300 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
+						className="rounded-xl opacity-90 hover:opacity-100 hover:bg-zinc-200 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
 					>
 						{!isDarkMode ? <FiMoon size={24} /> : <FiSun size={24} />}
 					</button>
 					<Link
 						href={`${githubLink}`}
-						className="rounded-xl opacity-80 hover:opacity-100 hover:bg-zinc-300 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
+						className="rounded-xl opacity-90 hover:opacity-100 hover:bg-zinc-200 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
 					>
 						<FiGithub size={24} />
 					</Link>
 					<div className="flex md:hidden w-12 h-12">
+						<Rainbow width="12" height="12" />
 						<ProfilePicture width="12" height="12" />
 					</div>
 				</div>

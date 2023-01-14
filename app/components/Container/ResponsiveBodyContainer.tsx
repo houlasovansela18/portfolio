@@ -19,15 +19,15 @@ export default function ResponsiveBodyContainer() {
 	return (
 		<>
 			<div className="bg-transparent mx-auto h-full max-w-4xl px-8">
-				<Rainbow width="40" height="40"/>
+				<Rainbow width="40" height="40" />
 				<div className="flex flex-col justify-between sm:flex-row gap-20">
 					<div className="flex flex-1 justify-start flex-col space-y-8 text-justify">
 						<div className="space-y-2">
 							<div className="flex justify-between items-center">
-								<h1 className="font-bold sm:text-4xl text-2xl cursor-not-allowed uppercase inline-block">
+								<h1 className="font-bold sm:text-4xl text-2xl cursor-not-allowed uppercase inline-block opacity-90`">
 									{userName}
 								</h1>
-								<span className="flex items-center gap-2">
+								<span className="flex items-center gap-2 opacity-80`">
 									<p className="px-2 dark:bg-zinc-900 bg-zinc-200 rounded-tl-xl rounded-br-xl">
 										aka
 									</p>
@@ -40,7 +40,7 @@ export default function ResponsiveBodyContainer() {
 								{bio.map((value, index) => {
 									return (
 										<>
-											<span className="flex items-center gap-1">
+											<span className="flex items-center gap-1 opacity-90`">
 												<p>{value[0]}</p>
 												{value[1]}
 											</span>
@@ -50,7 +50,7 @@ export default function ResponsiveBodyContainer() {
 								})}
 							</h2>
 						</div>
-						<div>
+						<div className="opacity-90`">
 							<p>{aboutMe}</p>
 						</div>
 					</div>
