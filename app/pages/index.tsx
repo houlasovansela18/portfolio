@@ -19,7 +19,7 @@ export default function Home() {
 			</Head>
 			<main className={darkMode}>
 				<DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-					<div className="flex flex-col h-screen w-full bg-white dark:bg-black text-black dark:text-white gap-4">
+					<div className="flex flex-col h-screen w-full bg-white dark:bg-black text-black dark:text-white overflow-hidden">
 						<div className="flex-none">
 							<TopNavbar />
 						</div>

@@ -34,7 +34,7 @@ export default function TopNavbar() {
 	];
 	return (
 		<>
-			<nav className="bg-transparent py-5 mx-auto max-w-4xl px-5 flex justify-between items-center relative">
+			<nav className="bg-transparent pt-2 pb-10 mx-auto max-w-4xl px-2 flex justify-between items-center relative">
 				<div className="flex md:hidden ml-[-0.60rem]">
 					<button
 						onClick={() => {}}
@@ -49,7 +49,7 @@ export default function TopNavbar() {
 							<Link
 								key={`${element[0]}`}
 								href={element[0] != "home" ? `/${element[0]}` : "/"}
-								className="rounded-xl opacity-90 hover:opacity-100 hover:font-bold hover:bg-zinc-200 hover:dark:bg-zinc-900 py-2 px-3 flex items-center gap-2"
+								className="rounded-xl text-black dark:text-white opacity-90 hover:opacity-100 hover:font-bold hover:bg-zinc-200 hover:dark:bg-zinc-900 py-2 px-3 flex items-center gap-2"
 							>
 								<span className="capitalize">{element[0]}</span>
 								{element[1]}
@@ -72,7 +72,7 @@ export default function TopNavbar() {
 					</button>
 					<Link
 						href={`${githubLink}`}
-						className="rounded-xl opacity-90 hover:opacity-100 hover:bg-zinc-200 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
+						className="rounded-xl text-black dark:text-white opacity-90 hover:opacity-100 hover:bg-zinc-200 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
 					>
 						<FiGithub size={24} />
 					</Link>

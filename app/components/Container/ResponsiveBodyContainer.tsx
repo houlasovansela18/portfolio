@@ -24,7 +24,7 @@ export default function ResponsiveBodyContainer() {
 	];
 	return (
 		<>
-			<div className="bg-transparent mx-auto max-w-4xl px-5">
+			<div className="bg-transparent mx-auto max-w-4xl px-2">
 				<div className="w-40 h-40 absolute">
 					<Rainbow width="40" height="40" />
 				</div>
@@ -66,9 +66,9 @@ export default function ResponsiveBodyContainer() {
 						<div className="opacity-90 text-xs sm:text-sm">
 							<p>{aboutMe}</p>
 						</div>
-						<div className="flex justify-end text-xs sm:text-sm gap-4">
+						<div className="flex justify-end text-xs sm:text-sm gap-3 opacity-90">
 							<a
-								className="flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2"
+								className="flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2 text-black dark:text-white hover:font-bold"
 								href="/resume.pdf"
 								download
 							>
