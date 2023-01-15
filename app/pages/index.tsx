@@ -18,16 +18,15 @@ export default function Home() {
 				<link rel="icon" href="/logo.png" />
 			</Head>
 			<main className={darkMode}>
-				<DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
-					<div className="flex flex-col h-screen w-full absolute bg-white dark:bg-black text-black dark:text-white overflow-hidden">
-						<div className="flex-none">
+				<div className="flex flex-col h-full w-full absolute bg-white dark:bg-black text-black dark:text-white overflow-hidden">
+					<div className="flex-none">
+						<DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
 							<TopNavbar />
-						</div>
-						<div className="flex-1">
-							<ResponsiveBodyContainer />
-						</div>
+						</DarkModeContext.Provider>
 					</div>
-				</DarkModeContext.Provider>
+					<ResponsiveBodyContainer />
+					<div className="flex-1"></div>
+				</div>
 			</main>
 		</>
 	);
