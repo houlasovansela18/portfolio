@@ -34,7 +34,7 @@ export default function TopNavbar() {
 	];
 	return (
 		<>
-			<nav className="bg-transparent pt-2 pb-10 mx-auto max-w-4xl px-2 flex justify-between items-center relative">
+			<nav className="bg-transparent pt-2 pb-10 mx-auto max-w-4xl px-3 flex justify-between items-center relative">
 				<div className="flex md:hidden ml-[-0.60rem]">
 					<button
 						onClick={() => {}}

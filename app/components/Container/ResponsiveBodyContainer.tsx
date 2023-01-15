@@ -24,7 +24,7 @@ export default function ResponsiveBodyContainer() {
 	];
 	return (
 		<>
-			<div className="bg-transparent mx-auto max-w-4xl px-2">
+			<div className="bg-transparent mx-auto max-w-4xl px-3">
 				<div className="w-40 h-40 absolute">
 					<Rainbow width="40" height="40" />
 				</div>
