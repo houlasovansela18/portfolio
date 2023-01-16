@@ -1,7 +1,7 @@
+/* eslint-disable react/jsx-key */
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/DarkModeContext";
 import {
-	FiDownload,
 	FiFolder,
 	FiGithub,
 	FiHome,
@@ -15,23 +15,22 @@ import { GiMuscleUp } from "react-icons/gi";
 import Link from "next/link";
 import ProfilePicture from "../Picture/ProfilePicture";
 import Rainbow from "../Stylish/Rainbow";
+import { useRouter } from "next/router";
 
 export default function TopNavbar() {
+	const router = useRouter();
+	const path = router.pathname;
 	const { darkMode, setDarkMode } = useContext(DarkModeContext);
 	const isDarkMode = darkMode === "dark";
 	const githubLink = "https://github.com/houlasovansela18";
 	const navElement = [
-		// eslint-disable-next-line react/jsx-key
-		["home", <FiHome size={20} />],
-		// eslint-disable-next-line react/jsx-key
+		["", <FiHome size={20} />],
 		["note", <FiPenTool size={20} />],
-		// eslint-disable-next-line react/jsx-key
 		["motivation", <GiMuscleUp size={20} />],
-		// eslint-disable-next-line react/jsx-key
 		["projects", <FiFolder size={20} />],
-		// eslint-disable-next-line react/jsx-key
 		["contact", <FiPhone size={20} />],
 	];
+	// .filter((element) => element[0] != route.replace("/", ""))
 	return (
 		<nav className="flex bg-transparent pt-2 pb-10 mx-auto max-w-4xl px-3 justify-between items-center">
 			<div className="flex md:hidden ml-[-0.60rem]">
@@ -47,10 +46,14 @@ export default function TopNavbar() {
 					return (
 						<Link
 							key={`${element[0]}_${element[1]}`}
-							href={element[0] != "home" ? `/${element[0]}` : "/"}
-							className={`${isDarkMode ? "text-white hover:bg-zinc-900" : " text-black hover:bg-zinc-200"} rounded-xl opacity-90 hover:opacity-100 hover:font-bold py-2 px-3 flex items-center gap-2`}
+							href={`/${element[0]}`}
+							className={`${
+								isDarkMode
+									? "text-white hover:bg-zinc-900"
+									: " text-black hover:bg-zinc-200"
+							} ${element[0] === path.replace("/","") ? "border-2" : ""} rounded-xl opacity-90 hover:opacity-100 hover:font-bold py-2 px-3 flex items-center gap-2`}
 						>
-							<span className="capitalize">{element[0]}</span>
+							<span className="capitalize">{element[0] === "" ? "home" : element[0]}</span>
 							{element[1]}
 						</Link>
 					);
@@ -71,7 +74,11 @@ export default function TopNavbar() {
 				</button>
 				<Link
 					href={`${githubLink}`}
-					className={`${isDarkMode ? "text-white hover:bg-zinc-900" : " text-black hover:bg-zinc-200"} rounded-xl opacity-90 hover:opacity-100 p-2 flex items-center gap-1`}
+					className={`${
+						isDarkMode
+							? "text-white hover:bg-zinc-900"
+							: " text-black hover:bg-zinc-200"
+					} rounded-xl opacity-90 hover:opacity-100 p-2 flex items-center gap-1`}
 				>
 					<FiGithub size={24} />
 				</Link>

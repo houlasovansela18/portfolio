@@ -18,7 +18,7 @@ export default function ProfileInfoContainer() {
 					<span className="text-xs opacity-90">
 						<p>Sigma, Geek !</p>
 					</span>
-					<h1 className="font-bold sm:text-4xl text-2xl cursor-not-allowed uppercase inline-block opacity-90`">
+					<h1 className="font-extrabold sm:text-4xl text-2xl cursor-not-allowed uppercase inline-block opacity-90`">
 						{userName}
 					</h1>
 				</div>
@@ -26,7 +26,7 @@ export default function ProfileInfoContainer() {
 					<p className="px-2 dark:bg-zinc-900 bg-zinc-200 rounded-tl-xl rounded-br-xl text-xs sm:text-sm">
 						aka
 					</p>
-					<h2 className="font-bold sm:text-2xl text-xl cursor-not-allowed uppercase">
+					<h2 className="font-extrabold sm:text-2xl text-xl cursor-not-allowed uppercase">
 						{nickName}
 					</h2>
 				</span>
