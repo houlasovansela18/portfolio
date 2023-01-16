@@ -1,14 +1,12 @@
+/* eslint-disable react/jsx-key */
 import { FiBriefcase, FiCode, FiMonitor } from "react-icons/fi";
 
 export default function ProfileInfoContainer() {
 	const userName = "houla sovansela";
 	const nickName = "godda";
 	const bio = [
-		// eslint-disable-next-line react/jsx-key
 		["software developer", <FiCode size={20} />],
-		// eslint-disable-next-line react/jsx-key
 		["self employ", <FiBriefcase size={20} />],
-		// eslint-disable-next-line react/jsx-key
 		["Free lancer", <FiMonitor size={20} />],
 	];
 	return (
