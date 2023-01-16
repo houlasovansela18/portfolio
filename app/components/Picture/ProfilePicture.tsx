@@ -18,6 +18,7 @@ export default function ProfilePicture({
 				// height={200}
 				// blurDataURL="data:..."
 				placeholder="blur" // Optional blur-up while loading
+				
 			/>
 		</div>
 	);

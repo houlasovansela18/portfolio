@@ -18,7 +18,7 @@ import Rainbow from "../Stylish/Rainbow";
 
 export default function TopNavbar() {
 	const { darkMode, setDarkMode } = useContext(DarkModeContext);
-	const isDarkMode = darkMode == "dark";
+	const isDarkMode = darkMode === "dark";
 	const githubLink = "https://github.com/houlasovansela18";
 	const navElement = [
 		// eslint-disable-next-line react/jsx-key
@@ -33,10 +33,10 @@ export default function TopNavbar() {
 		["contact", <FiPhone size={20} />],
 	];
 	return (
-		<nav className="bg-transparent pt-2 pb-10 mx-auto max-w-4xl px-3 flex justify-between items-center">
+		<nav className="flex bg-transparent pt-2 pb-10 mx-auto max-w-4xl px-3 justify-between items-center">
 			<div className="flex md:hidden ml-[-0.60rem]">
 				<button
-				onClick={() => {}}
+					onClick={() => {}}
 					className="rounded-xl hover:bg-zinc-500 p-2 opacity-90 hover:opacity-100"
 				>
 					<FiMenu size={24} />
@@ -48,7 +48,7 @@ export default function TopNavbar() {
 						<Link
 							key={`${element[0]}_${element[1]}`}
 							href={element[0] != "home" ? `/${element[0]}` : "/"}
-							className="rounded-xl text-black dark:text-white opacity-90 hover:opacity-100 hover:font-bold hover:bg-zinc-200 hover:dark:bg-zinc-900 py-2 px-3 flex items-center gap-2"
+							className={`${isDarkMode ? "text-white hover:bg-zinc-900" : " text-black hover:bg-zinc-200"} rounded-xl opacity-90 hover:opacity-100 hover:font-bold py-2 px-3 flex items-center gap-2`}
 						>
 							<span className="capitalize">{element[0]}</span>
 							{element[1]}
@@ -71,7 +71,7 @@ export default function TopNavbar() {
 				</button>
 				<Link
 					href={`${githubLink}`}
-					className="rounded-xl text-black dark:text-white opacity-90 hover:opacity-100 hover:bg-zinc-200 hover:dark:bg-zinc-900 p-2 flex items-center gap-1"
+					className={`${isDarkMode ? "text-white hover:bg-zinc-900" : " text-black hover:bg-zinc-200"} rounded-xl opacity-90 hover:opacity-100 p-2 flex items-center gap-1`}
 				>
 					<FiGithub size={24} />
 				</Link>

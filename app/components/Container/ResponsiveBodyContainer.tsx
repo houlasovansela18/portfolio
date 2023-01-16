@@ -2,8 +2,12 @@ import { FiDollarSign, FiDownload } from "react-icons/fi";
 import ProfilePicture from "../Picture/ProfilePicture";
 import Rainbow from "../Stylish/Rainbow";
 import ProfileInfoContainer from "./ProfileInfoContainer";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/DarkModeContext";
 
 export default function ResponsiveBodyContainer() {
+	const { darkMode, setDarkMode } = useContext(DarkModeContext);
+	const iSDarkMode = darkMode === "dark";
 	const aboutMe = `I am a software developer graduated from Kirirom Institute of
 	Technology. I had experiences in website, mobile development, AI,
 	machine learning and computer vision.`;
@@ -21,7 +25,9 @@ export default function ResponsiveBodyContainer() {
 						</div>
 						<div className="flex justify-end text-xs sm:text-sm gap-3 opacity-90">
 							<a
-								className="flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2 text-black dark:text-white hover:font-bold"
+								className={`${
+									iSDarkMode ? "text-white" : " text-black"
+								} flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2 hover:font-bold`}
 								href="/resume.pdf"
 								download
 							>
