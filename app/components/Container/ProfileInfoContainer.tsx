@@ -34,13 +34,13 @@ export default function ProfileInfoContainer() {
 			<h2 className="flex items-center capitalize gap-2 text-xs md:text-sm">
 				{bio.map((value, index) => {
 					return (
-						<>
-							<span className="flex items-center gap-2 opacity-90`">
+						<div key={`${value}_${index}`} className="flex item-center gap-2 opacity-90">
+							<span className="flex items-center gap-2">
 								<p>{value[0]}</p>
 								{value[1]}
 							</span>
 							{index == bio.length - 1 ? "" : "|"}
-						</>
+						</div>
 					);
 				})}
 			</h2>
