@@ -36,7 +36,9 @@ export default function TopNavbar() {
 			<div className="flex md:hidden ml-[-0.60rem]">
 				<button
 					onClick={() => {}}
-					className="rounded-xl hover:bg-zinc-500 p-2 opacity-90 hover:opacity-100"
+					className={`${
+						isDarkMode ? "hover:bg-zinc-900" : "hover:bg-zinc-200"
+					} rounded-xl hover:bg-zinc-500 p-2 opacity-90 hover:opacity-100`}
 				>
 					<FiMenu size={24} />
 				</button>
@@ -51,9 +53,13 @@ export default function TopNavbar() {
 								isDarkMode
 									? "text-white hover:bg-zinc-900"
 									: " text-black hover:bg-zinc-200"
-							} ${element[0] === path.replace("/","") ? "border-2" : ""} rounded-xl opacity-90 hover:opacity-100 hover:font-bold py-2 px-3 flex items-center gap-2`}
+							} ${
+								element[0] === path.replace("/", "") ? "border-2" : ""
+							} rounded-xl opacity-90 hover:opacity-100 hover:font-bold py-2 px-3 flex items-center gap-2`}
 						>
-							<span className="capitalize">{element[0] === "" ? "home" : element[0]}</span>
+							<span className="capitalize">
+								{element[0] === "" ? "home" : element[0]}
+							</span>
 							{element[1]}
 						</Link>
 					);
@@ -86,7 +92,9 @@ export default function TopNavbar() {
 					<div className="w-20 h-20 absolute">
 						<Rainbow width="20" height="20" />
 					</div>
-					<ProfilePicture width="12" height="12" />
+					<div className="z-10">
+						<ProfilePicture width="12" height="12" />
+					</div>
 				</div>
 			</div>
 		</nav>

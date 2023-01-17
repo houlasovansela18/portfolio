@@ -17,7 +17,7 @@ export default function HomeContent() {
 				<Rainbow width="40" height="40" />
 			</div>
 			<div className="flex flex-col justify-between sm:flex-row gap-20">
-				<div className="flex flex-1 justify-start flex-col space-y-8 text-justify">
+				<div className="flex flex-1 justify-start flex-col space-y-8 text-justify z-10">
 					<ProfileInfoContainer />
 					<div className="opacity-90 text-xs sm:text-sm">
 						<p>{aboutMe}</p>
@@ -43,7 +43,12 @@ export default function HomeContent() {
 					</div>
 				</div>
 				<div className="hidden flex-none md:flex justify-end w-40 h-40">
-					<ProfilePicture width="40" height="40" />
+					<div className="absolute">
+						<Rainbow width="40" height="40" />
+					</div>
+					<div className="z-10">
+						<ProfilePicture width="40" height="40" />
+					</div>
 				</div>
 			</div>
 		</>
