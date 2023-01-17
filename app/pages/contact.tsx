@@ -1,12 +1,17 @@
+import dynamic from "next/dynamic";
+const DynamicMainPageContainer = dynamic(
+	() => import("../components/Container/MainPageContainer")
+);
+const DynamicHeadCustom = dynamic(
+	() => import("../components/Head/CustomHead")
+);
 import ContactPageContent from "../components/ContactComponents/ContactPageContent";
-import MainPageContainer from "../components/Container/MainPageContainer";
-import HeadCustom from "../components/Head/CustomHead";
 
 export default function Contact() {
 	return (
 		<>
-			<HeadCustom />
-			<MainPageContainer MainContent={ContactPageContent} />
+			<DynamicHeadCustom />
+			<DynamicMainPageContainer MainContent={ContactPageContent} />
 		</>
 	);
 }

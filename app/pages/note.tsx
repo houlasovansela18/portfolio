@@ -1,12 +1,17 @@
-import HeadCustom from "../components/Head/CustomHead";
-import MainPageContainer from "../components/Container/MainPageContainer";
+import dynamic from "next/dynamic";
+const DynamicMainPageContainer = dynamic(
+	() => import("../components/Container/MainPageContainer")
+);
+const DynamicHeadCustom = dynamic(
+	() => import("../components/Head/CustomHead")
+);
 import NotePageContent from "../components/NoteComponents/NotePageContent";
 
 export default function Note() {
 	return (
 		<>
-			<HeadCustom />
-			<MainPageContainer MainContent={NotePageContent} />
+			<DynamicHeadCustom />
+			<DynamicMainPageContainer MainContent={NotePageContent} />
 		</>
 	);
 }

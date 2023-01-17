@@ -1,12 +1,17 @@
-import MainPageContainer from "../components/Container/MainPageContainer";
+import dynamic from "next/dynamic";
+const DynamicMainPageContainer = dynamic(
+	() => import("../components/Container/MainPageContainer")
+);
+const DynamicHeadCustom = dynamic(
+	() => import("../components/Head/CustomHead")
+);
 import HomePageContent from "../components/HomeComponents/HomePageContent";
-import HeadCustom from "../components/Head/CustomHead";
 
 export default function Home() {
 	return (
 		<>
-			<HeadCustom />
-			<MainPageContainer MainContent={HomePageContent} />
+			<DynamicHeadCustom />
+			<DynamicMainPageContainer MainContent={HomePageContent} />
 		</>
 	);
 }

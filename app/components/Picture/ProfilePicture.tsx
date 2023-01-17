@@ -1,6 +1,7 @@
 import Image from "next/image";
 import profilePic from "../../public/profile.png";
 
+
 export default function ProfilePicture({
 	width,
 	height,
@@ -8,6 +9,7 @@ export default function ProfilePicture({
 	width: string;
 	height: string;
 }) {
+	
 	return (
 		<div className={`w-${width} h-${height}`}>
 			<Image

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Timer, { FormattedDuration } from "@dbpiper/timer";
 
 export default function HeadCustom() {
 	const router = useRouter();
@@ -14,6 +15,7 @@ export default function HeadCustom() {
 	};
 	const titlePrefix = "Houla Sovansela";
 	const title = `${titlePrefix} - ${titleOption[newPath]}`;
+	const timer = new Timer();
 	return (
 		<Head>
 			<title>{title}</title>
@@ -22,7 +24,17 @@ export default function HeadCustom() {
 				content="software developer, portfolio, resume and job seeking..."
 			/>
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<link rel="icon" href="/code.png" />
+			<link
+				rel="icon"
+				href="/code.png"
+				onLoadStart={() => {
+					timer.start();
+				}}
+				onLoadedDataCapture={() => {
+					const formattedDuration = timer.stop();
+					console.log(formattedDuration.milliseconds);
+				}}
+			/>
 		</Head>
 	);
 }

@@ -1,12 +1,17 @@
-import MainPageContainer from "../components/Container/MainPageContainer";
-import HeadCustom from "../components/Head/CustomHead";
+import dynamic from "next/dynamic";
+const DynamicMainPageContainer = dynamic(
+	() => import("../components/Container/MainPageContainer")
+);
+const DynamicHeadCustom = dynamic(
+	() => import("../components/Head/CustomHead")
+);
 import MotivationPageContent from "../components/MotivationComponents/MotivationPageContent";
 
 export default function Motivation() {
 	return (
 		<>
-			<HeadCustom />
-			<MainPageContainer MainContent={MotivationPageContent}/>
+			<DynamicHeadCustom />
+			<DynamicMainPageContainer MainContent={MotivationPageContent}/>
 		</>
 	);
 }
