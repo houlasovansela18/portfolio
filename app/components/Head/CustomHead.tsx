@@ -23,17 +23,20 @@ export default function HeadCustom() {
 				name="description"
 				content="software developer, portfolio, resume and job seeking..."
 			/>
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<meta
+				name="viewport"
+				content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+			/>
 			<link
 				rel="icon"
 				href="/code.png"
-				onLoadStart={() => {
-					timer.start();
-				}}
-				onLoadedDataCapture={() => {
-					const formattedDuration = timer.stop();
-					console.log(formattedDuration.milliseconds);
-				}}
+				// onLoadStart={() => {
+				// 	timer.start();
+				// }}
+				// onLoadedDataCapture={() => {
+				// 	const formattedDuration = timer.stop();
+				// 	console.log(formattedDuration.milliseconds);
+				// }}
 			/>
 		</Head>
 	);

@@ -1,6 +1,6 @@
 import ResponsiveBodyContainer from "../Container/ResponsiveBodyContainer";
 import TopNavbar from "../Navbar/TopNavbar";
-import HomeContent from "./HomeBodyContent";
+import HomeBodyContent from "./HomeBodyContent";
 
 export default function HomePageContent() {
 	return (
@@ -9,7 +9,7 @@ export default function HomePageContent() {
 				<TopNavbar />
 			</div>
 			<div className="flex-1">
-				<ResponsiveBodyContainer ContentBody={HomeContent} />
+				<ResponsiveBodyContainer ContentBody={HomeBodyContent} />
 			</div>
 		</>
 	);
