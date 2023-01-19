@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-key */
-
 import {
 	FiFolder,
 	FiGithub,
@@ -16,15 +15,22 @@ import Link from "next/link";
 import ProfilePicture from "../Picture/ProfilePicture";
 import Rainbow from "../Stylish/Rainbow";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import useLocalStorage from "../../hook/useLocalStorage";
-import useTheme from "../../hook/useTheme";
+import { useState, useEffect } from "react";
 
 export default function TopNavbar() {
+	const [darkTheme, setDarkTheme] = useState(true);
+	useEffect(() => {
+		const html = document.querySelector("html")?.classList;
+		if (darkTheme) {
+			html?.add("dark");
+			html?.remove("light");
+		} else {
+			html?.add("light");
+			html?.remove("dark");
+		}
+	}, [darkTheme]);
 	const router = useRouter();
 	const path = router.pathname;
-	const [theme, setTheme] = useTheme();
-	const isDarkMode = theme === "dark";
 	const [isClose, setIsClose] = useState(false);
 	const githubLink = "https://github.com/houlasovansela18";
 	const navElement = [
@@ -69,11 +75,11 @@ export default function TopNavbar() {
 				<div className="flex items-center space-x-2 mr-0 md:mr-[-0.60rem]">
 					<button
 						onClick={() => {
-							isDarkMode ? setTheme("light") : setTheme("dark");
+							setDarkTheme(!darkTheme);
 						}}
 						className="rounded-xl opacity-90 hover:opacity-100 hover:bg-zinc-200 dark:hover:bg-zinc-900 p-2 flex items-center gap-1"
 					>
-						{!isDarkMode ? <FiMoon size={24} /> : <FiSun size={24} />}
+						{!darkTheme ? <FiMoon size={24} /> : <FiSun size={24} />}
 					</button>
 					<Link
 						href={`${githubLink}`}
