@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Comfortaa } from "@next/font/google";
+import { ThemeProvider } from "../context/ThemeContext";
 
 const comfortaa = Comfortaa({
 	subsets: ["latin"],
@@ -8,9 +9,12 @@ const comfortaa = Comfortaa({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+	
 	return (
-		<main className={`${comfortaa.variable} font-sans`}>
-			<Component {...pageProps} />
-		</main>
+		<ThemeProvider>
+			<main className={`${comfortaa.variable} font-sans`}>
+				<Component {...pageProps} />
+			</main>
+		</ThemeProvider>
 	);
 }

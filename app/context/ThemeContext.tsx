@@ -1,25 +1,20 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
-const ThemeContext = createContext(true);
-const ThemeUpdateContext = createContext((value: boolean) => {
-	(value: boolean) => {};
-});
+type ThemeContextType = {
+	theme: string;
+	setTheme: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export function useTheme() {
-	return useContext(ThemeContext);
-}
+export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export function useThemeUpdate() {
-	return useContext(ThemeUpdateContext);
-}
-
-export function ThemeProvider({ children }) {
-	const [darkTheme, setDarkTheme] = useState(true);
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+	const [theme, setTheme] = useState<string>("");
+	useEffect(() => {
+		setTheme(window.localStorage.getItem("theme") || "");
+	}, [theme]);
 	return (
-		<ThemeContext.Provider value={darkTheme}>
-			<ThemeUpdateContext.Provider value={setDarkTheme}>
-				{children}
-			</ThemeUpdateContext.Provider>
+		<ThemeContext.Provider value={{ theme, setTheme }}>
+			{children}
 		</ThemeContext.Provider>
 	);
-}
+};

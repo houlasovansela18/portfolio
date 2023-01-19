@@ -15,20 +15,18 @@ import Link from "next/link";
 import ProfilePicture from "../Picture/ProfilePicture";
 import Rainbow from "../Stylish/Rainbow";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function TopNavbar() {
-	const [darkTheme, setDarkTheme] = useState(true);
+	const setLocalTheme = (themeValue: string) => {
+		window.localStorage.setItem("theme", themeValue);
+	};
+	const themeContext = useContext(ThemeContext);
 	useEffect(() => {
 		const html = document.querySelector("html")?.classList;
-		if (darkTheme) {
-			html?.add("dark");
-			html?.remove("light");
-		} else {
-			html?.add("light");
-			html?.remove("dark");
-		}
-	}, [darkTheme]);
+		themeContext?.theme === "dark" ? html?.add("dark") : html?.remove("dark");
+	}, [themeContext?.theme]);
 	const router = useRouter();
 	const path = router.pathname;
 	const [isClose, setIsClose] = useState(false);
@@ -75,11 +73,21 @@ export default function TopNavbar() {
 				<div className="flex items-center space-x-2 mr-0 md:mr-[-0.60rem]">
 					<button
 						onClick={() => {
-							setDarkTheme(!darkTheme);
+							if (themeContext?.theme === "dark") {
+								themeContext?.setTheme("");
+								setLocalTheme("");
+							} else {
+								themeContext?.setTheme("dark");
+								setLocalTheme("dark");
+							}
 						}}
 						className="rounded-xl opacity-90 hover:opacity-100 hover:bg-zinc-200 dark:hover:bg-zinc-900 p-2 flex items-center gap-1"
 					>
-						{!darkTheme ? <FiMoon size={24} /> : <FiSun size={24} />}
+						{themeContext?.theme === "dark" ? (
+							<FiSun size={24} />
+						) : (
+							<FiMoon size={24} />
+						)}
 					</button>
 					<Link
 						href={`${githubLink}`}
