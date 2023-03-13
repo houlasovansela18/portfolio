@@ -29,7 +29,7 @@ export default function TopNavbar() {
 	}, [themeContext?.theme]);
 	const router = useRouter();
 	const path = router.pathname;
-	const [isClose, setIsClose] = useState(false);
+	const [isClose, setIsClose] = useState(true);
 	const githubLink = "https://github.com/houlasovansela18";
 	const navElement = [
 		["", <FiHome size={20} />],

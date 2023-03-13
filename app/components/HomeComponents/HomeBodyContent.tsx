@@ -1,4 +1,4 @@
-import { FiDollarSign, FiDownload } from "react-icons/fi";
+import { FiDownload, FiBriefcase } from "react-icons/fi";
 import ProfileInfoContainer from "../Container/ProfileInfoContainer";
 import Rainbow from "../Stylish/Rainbow";
 import ProfilePicture from "../Picture/ProfilePicture";
@@ -15,10 +15,10 @@ export default function HomeContent() {
 			<div className="flex flex-col justify-between sm:flex-row gap-20">
 				<div className="flex flex-1 justify-start flex-col space-y-8 text-justify z-10">
 					<ProfileInfoContainer />
-					<div className="opacity-90 text-xs sm:text-sm">
+					<div className="opacity-90 text-sm sm:text-base">
 						<p>{aboutMe}</p>
 					</div>
-					<div className="flex justify-end text-xs sm:text-sm gap-3 opacity-90">
+					<div className="flex justify-end text-xs sm:text-sm gap-3">
 						<a
 							className={`flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2 hover:font-bold`}
 							href="/resume.pdf"
@@ -27,10 +27,10 @@ export default function HomeContent() {
 							<p>Resume</p>
 							<FiDownload size={20} />
 						</a>
-						<span className="flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2">
+						<button className="flex flex-none items-center gap-1 px-3 py-1 rounded-xl border-2 hover:font-bold ">
 							<p>Hire me</p>
-							<FiDollarSign size={20} />
-						</span>
+							<FiBriefcase size={20} />
+						</button>
 						<div className="w-20 h-20 absolute">
 							<Rainbow width="20" height="20" />
 						</div>

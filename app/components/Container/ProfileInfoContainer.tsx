@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { FiBriefcase, FiCode, FiMonitor } from "react-icons/fi";
 
-export default function ProfileInfoContainer() {
+export default function ProfileInfoContainer() :JSX.Element{
 	const userName = "houla sovansela";
 	const nickName = "godda";
 	const bio = [
@@ -24,8 +24,10 @@ export default function ProfileInfoContainer() {
 					<p className="px-2 dark:bg-zinc-900 bg-zinc-200 rounded-tl-xl rounded-br-xl text-xs sm:text-sm">
 						aka
 					</p>
-					<h2 className="font-extrabold sm:text-2xl text-xl cursor-not-allowed uppercase">
-						{nickName}
+					<h2 className="font-extrabold sm:text-2xl text-xl uppercase">
+						<a href="https://discordapp.com/users/778139808845004801">
+							{nickName}
+						</a>
 					</h2>
 				</span>
 			</div>
