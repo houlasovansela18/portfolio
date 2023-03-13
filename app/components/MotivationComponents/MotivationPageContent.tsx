@@ -9,7 +9,9 @@ export default function HomePageContent() {
 				<TopNavbar />
 			</div>
 			<div className="flex-1">
-				<ResponsiveBodyContainer ContentBody={MotivationBodyContent} />
+				<ResponsiveBodyContainer>
+					<MotivationBodyContent />
+				</ResponsiveBodyContainer>
 			</div>
 		</>
 	);
